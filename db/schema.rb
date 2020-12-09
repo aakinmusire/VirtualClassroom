@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201020064315) do
+ActiveRecord::Schema.define(version: 20201117055216) do
 
   create_table "announcements", force: :cascade do |t|
     t.string "title"
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20201020064315) do
     t.datetime "updated_at", null: false
     t.index ["body_id"], name: "index_appearances_on_body_id"
     t.index ["title_id"], name: "index_appearances_on_title_id"
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

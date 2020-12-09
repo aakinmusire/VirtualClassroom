@@ -1,0 +1,19 @@
+<h1>Edit <%= @link.title %> </h1>
+<form action="/links/<%= @link.id %> " method="post">
+	<input type="hidden" name="_method" value="patch">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	 <div class="form-group">
+		<label>Title:</label>
+		<input type="text" name="link[title]" value="<%= @link.title %>" class="form-control">
+	</div>
+	 <div class="form-group">
+		<label>Url:</label>
+		<input type= "text" name="link[url]" value="<%= @link.url %>" class="form-control">
+	</div>
+	<input type ="submit" value="Update" class="btn btn-primary">
+</form>
+<% if flash[:errors] %>
+	<%flash[:errors].each do |e| %>
+	<div class="alert alert-danger"><%= e %></div>
+	<% end %>
+<% end %>
